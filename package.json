@@ -109,6 +109,7 @@
   "dependencies": {
     "@amplitude/node": "1.6.1",
     "@amplitude/react-amplitude": "1.0.0",
+    "@chakra-ui/icons": "^1.0.15",
     "@chakra-ui/react": "^1.6.8",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",

@@ -17,7 +17,9 @@ import {
   NextPage,
 } from 'next';
 import React from 'react';
-import { LandingPage } from './components/landing';
+import { Banner } from '@/common/components/banners/Banner';
+
+import { LandingPage } from '../../../common/components/heroes/LandingPage';
 
 const fileLabel = 'pages/[locale]/public/index';
 const logger = createLogger({ // eslint-disable-line no-unused-vars,@typescript-eslint/no-unused-vars
@@ -62,6 +64,7 @@ const ExamplePublicPage: NextPage<Props> = (props): JSX.Element => {
       {...props}
       pageName={AMPLITUDE_PAGES.TEMPLATE_SSG_PAGE}
     >
+      <Banner />
       <LandingPage />
     </PublicLayout>
   );
