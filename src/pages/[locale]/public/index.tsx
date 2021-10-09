@@ -20,6 +20,13 @@ import React from 'react';
 import { Banner } from '@/common/components/banners/Banner';
 
 import { LandingPage } from '../../../common/components/heroes/LandingPage';
+import { UserCardWithRating } from '@/common/components/cards/user-card-with-rating/UserCardWithRating';
+import { HeaderWithAction } from '@/common/components/headers/header-with-actions/HeaderWithAction';
+import { HeaderWithActionAndTab } from '@/common/components/headers/header-with-actions-and-tabs/HeaderWithActionAndTab';
+import { NotificationWithSeparator } from '@/common/components/notifications/NotificationWithSeparator';
+import { ButtonCheckboxList } from '@/common/components/checkboxes/button-checkbox/ButtonCheckboxList';
+import { TestemonialWithCurve } from '@/common/components/testemonials/testemonials-with-curve/TestemonialWithCurve';
+import { DarkWithTestimonial } from '@/common/components/features/dark-with-testimonial/DarkWithTestimonial';
 
 const fileLabel = 'pages/[locale]/public/index';
 const logger = createLogger({ // eslint-disable-line no-unused-vars,@typescript-eslint/no-unused-vars
@@ -64,8 +71,15 @@ const ExamplePublicPage: NextPage<Props> = (props): JSX.Element => {
       {...props}
       pageName={AMPLITUDE_PAGES.TEMPLATE_SSG_PAGE}
     >
-      <Banner />
-      <LandingPage />
+      {/* <Banner /> */}
+      <DarkWithTestimonial />
+      <TestemonialWithCurve />
+      <ButtonCheckboxList />
+      <NotificationWithSeparator />
+      <UserCardWithRating />
+      <HeaderWithActionAndTab />
+      <HeaderWithAction />
+      {/* <LandingPage /> */}
     </PublicLayout>
   );
 };
