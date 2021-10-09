@@ -27,6 +27,7 @@ import { NotificationWithSeparator } from '@/common/components/notifications/Not
 import { ButtonCheckboxList } from '@/common/components/checkboxes/button-checkbox/ButtonCheckboxList';
 import { TestemonialWithCurve } from '@/common/components/testemonials/testemonials-with-curve/TestemonialWithCurve';
 import { DarkWithTestimonial } from '@/common/components/features/dark-with-testimonial/DarkWithTestimonial';
+import { SignIn } from '@/common/components/auth/sign-in/SignIn';
 
 const fileLabel = 'pages/[locale]/public/index';
 const logger = createLogger({ // eslint-disable-line no-unused-vars,@typescript-eslint/no-unused-vars
@@ -72,6 +73,7 @@ const ExamplePublicPage: NextPage<Props> = (props): JSX.Element => {
       pageName={AMPLITUDE_PAGES.TEMPLATE_SSG_PAGE}
     >
       {/* <Banner /> */}
+      <SignIn />
       <DarkWithTestimonial />
       <TestemonialWithCurve />
       <ButtonCheckboxList />
