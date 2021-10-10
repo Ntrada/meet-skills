@@ -22,10 +22,10 @@ const PublicLayout: React.FunctionComponent<Props> = (props): JSX.Element => {
         display: block;
         width: 100vw;
         height: 100vh;
-        padding-top: 100px;
+        padding-top: 0px;
 
         .page-container {
-          padding: 50px !important;
+          padding: 00px !important;
         }
       `}
       layoutName={'public-layout'}
