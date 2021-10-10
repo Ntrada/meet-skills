@@ -28,6 +28,7 @@ import { ButtonCheckboxList } from '@/common/components/checkboxes/button-checkb
 import { TestemonialWithCurve } from '@/common/components/testemonials/testemonials-with-curve/TestemonialWithCurve';
 import { DarkWithTestimonial } from '@/common/components/features/dark-with-testimonial/DarkWithTestimonial';
 import { SignIn } from '@/common/components/auth/sign-in/SignIn';
+import { PageShellWithGroupedMenu } from '@/common/components/page-shell/page-shell-with-grouped-menu/PageShellWithGroupedMenu';
 
 const fileLabel = 'pages/[locale]/public/index';
 const logger = createLogger({ // eslint-disable-line no-unused-vars,@typescript-eslint/no-unused-vars
@@ -72,9 +73,11 @@ const ExamplePublicPage: NextPage<Props> = (props): JSX.Element => {
       {...props}
       pageName={AMPLITUDE_PAGES.TEMPLATE_SSG_PAGE}
     >
+      <PageShellWithGroupedMenu />
 
+      {/*
       <DarkWithTestimonial />
-      {/* <SignIn />
+      <SignIn />
       <TestemonialWithCurve />
       <ButtonCheckboxList />
       <NotificationWithSeparator />
@@ -82,7 +85,8 @@ const ExamplePublicPage: NextPage<Props> = (props): JSX.Element => {
       <HeaderWithActionAndTab />
       <HeaderWithAction />
       <LandingPage />
-      <Banner /> */}
+      <Banner />
+      */}
     </PublicLayout>
   );
 };
