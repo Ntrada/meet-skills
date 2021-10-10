@@ -1,101 +1,92 @@
 import {
-  Badge,
   Box,
+  Button,
   Flex,
   Heading,
-  HStack,
-  Img,
+  SimpleGrid,
+  Stack,
   Text,
   useColorModeValue as mode,
 } from '@chakra-ui/react'
 import * as React from 'react'
-import { HiOutlineExternalLink } from 'react-icons/hi'
-import { Logo } from './Logo'
-import { SigninForm } from './SigninForm'
-import { UnderlineLink } from './UnderlineLink'
+import { FaFacebook, FaGoogle } from 'react-icons/fa'
 
-export const SignIn = () => {
+import { DividerWithText } from './DividerWithText'
+import { Logo } from './Logo'
+import { SignupForm } from './SignupForm'
+import { Testimonial } from './Testimonial'
+
+export const SignIn: React.FC = () => {
   return (
-    <Flex
-      direction={{ base: 'column', md: 'row' }}
-      overflow="hidden"
-      minH="100vh"
-      height="100%"
-      bg={mode('gray.50', 'inherit')}
-    >
-      <Box overflowY="auto" flex="1" py={{ base: '10', md: '16' }} px={{ base: '6', md: '10' }}>
-        <Box maxW="sm" mx="auto">
-          <Logo mb={{ base: '14', md: '32' }} w="auto" h="7" mx="auto" iconColor="blue.500" />
-          <Box textAlign="center" mb={{ base: '10', md: '16' }}>
-            <Heading as="h1" size="xl" fontWeight="extrabold" letterSpacing="tight">
-              Sign in to your account
-            </Heading>
-            <Text mt="3" color={mode('gray.600', 'gray.400')} fontWeight="medium">
-              Need an account? <UnderlineLink>Sign up for free</UnderlineLink>
+    <Box minH="100vh" bg={{ md: mode('gray.100', 'inherit') }}>
+      <Box maxW="6xl" mx="auto" py={{ base: '10', md: '20' }} px={{ base: '4', md: '10' }}>
+        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing="14">
+          <Box w="full" maxW="xl" mx="auto">
+            <Box
+              bg={{ md: mode('white', 'gray.700') }}
+              rounded={{ md: '2xl' }}
+              p={{ base: '4', md: '12' }}
+              borderWidth={{ md: '1px' }}
+              borderColor={mode('gray.200', 'transparent')}
+              shadow={{ md: 'lg' }}
+            >
+              {/* <Logo
+                h="6"
+                mb={{ base: '16', md: '10' }}
+                iconColor="blue.600"
+                mx={{ base: 'auto', md: 'unset' }}
+              /> */}
+              <Box mb="8" textAlign={{ base: 'center', md: 'start' }}>
+                <Heading size="lg" mb="2" fontWeight="extrabold">
+                  Welcome to Skills
+                </Heading>
+                <Text fontSize="lg" color={mode('gray.600', 'gray.400')} fontWeight="medium">
+                  Enter your info to get started
+                </Text>
+              </Box>
+              <Stack spacing="4">
+                <Button variant="outline" leftIcon={<Box as={FaGoogle} color="red.500" />}>
+                  Sign up with Google
+                </Button>
+                <Button
+                  variant="outline"
+                  leftIcon={<Box as={FaFacebook} color={mode('facebook.500', 'facebook.300')} />}
+                >
+                  Sign up with Facebook
+                </Button>
+              </Stack>
+
+              <DividerWithText>or</DividerWithText>
+              <SignupForm />
+            </Box>
+
+            <Text mt="8" align="center" fontWeight="medium">
+              Already have an account?{' '}
+              <Box
+                as="a"
+                href="#"
+                color={mode('blue.600', 'blue.200')}
+                display={{ base: 'block', md: 'inline-block' }}
+              >
+                Log in to Chakra
+              </Box>
             </Text>
           </Box>
-          <SigninForm />
-        </Box>
-      </Box>
 
-      <Box
-        display={{ base: 'none', lg: 'block' }}
-        maxH="100vh"
-        overflow="hidden"
-        flex="1"
-        bg="blue.600"
-        color="white"
-        px="20"
-        pt="32"
-      >
-        <Badge
-          bg="blue.700"
-          px="4"
-          py="1"
-          rounded="md"
-          letterSpacing="wide"
-          color="whiteAlpha.900"
-        >
-          New and Improved
-        </Badge>
-        <Text
-          mt="6"
-          fontWeight="extrabold"
-          fontSize={{ base: '2xl', lg: '3xl' }}
-          maxW="sm"
-          letterSpacing="tight"
-          lineHeight="normal"
-        >
-          Create Beautiful websites with Chakra Pro
-        </Text>
-        <Text mt="5" maxW="md" fontSize="lg">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididun.
-        </Text>
-        <HStack
-          as="a"
-          href="#"
-          justify="center"
-          display="inline-flex"
-          minW="2xs"
-          py="3"
-          px="2"
-          mt="5"
-          fontWeight="semibold"
-          border="2px solid white"
-          rounded="lg"
-          transition="all 0.2s"
-          _hover={{ bg: 'whiteAlpha.200' }}
-        >
-          <Box>Learn more</Box>
-          <HiOutlineExternalLink />
-        </HStack>
-        <Box mt="10" position="relative">
-          <Img
-            alt="App screenshot"
-            src="https://res.cloudinary.com/chakra-ui-pro/image/upload/v1621082943/pro-website/screenshot-dark_w6jpks.png"
-          />
-        </Box>
+          <Flex direction="column" py="24" display={{ base: 'none', lg: 'flex' }}>
+            <Testimonial />
+            <SimpleGrid
+              columns={3}
+              spacing="10"
+              paddingStart="12"
+              alignItems="center"
+              color="gray.400"
+            >
+
+            </SimpleGrid>
+          </Flex>
+        </SimpleGrid>
       </Box>
-    </Flex>
+    </Box>
   )
 }
