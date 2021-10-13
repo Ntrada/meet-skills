@@ -12,7 +12,7 @@ import { NextWebVitalsMetricsReport } from '@/modules/core/webVitals/types/NextW
 import size from 'lodash.size';
 import React from 'react';
 import { v1 as uuid } from 'uuid'; // XXX Use v1 for uniqueness - See https://www.sohamkamani.com/blog/2016/10/05/uuid1-vs-uuid4/
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 
 /**
  * "props.pageProps" will depend on whether the page is served by server or client, SSG or SSR
@@ -62,9 +62,18 @@ type Props = MultiversalAppBootstrapProps<SSGPageProps> | MultiversalAppBootstra
  * @return {JSX.Element}
  */
 const MultiversalPageEntryPoint: React.FunctionComponent<Props> = (props): JSX.Element => {
+
+  const colors = {
+    brand: {
+      900: "#1a365d",
+      800: "#153e75",
+      700: "#2a69ac",
+    },
+  }
+  const theme = extendTheme({ colors })
   return (
 
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <MultiversalAppBootstrap {...props} />
     </ChakraProvider>
 

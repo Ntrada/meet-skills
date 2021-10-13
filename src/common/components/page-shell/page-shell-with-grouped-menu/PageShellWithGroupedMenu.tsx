@@ -64,8 +64,8 @@ export const PageShellWithGroupedMenu = () => {
             w="full"
             h="full"
             rounded="lg"
-            border="3px dashed currentColor"
-            color={mode('gray.200', 'gray.700')}
+            border="3px dashed gray"
+            color={mode('black.200', 'black.700')}
           >
             <MeetingListContainer />
           </Box>

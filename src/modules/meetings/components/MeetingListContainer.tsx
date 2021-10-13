@@ -1,3 +1,4 @@
+import { WYSIGEditor } from '@/common/components/editors/WYSIGEditor'
 import {
   Box,
   Button,
@@ -22,7 +23,7 @@ export const MeetingListContainer = () => {
   return (
     <Tabs isFitted>
       <Flex direction="column" align="stretch" minH="100vh">
-        <Box bg={mode('gray.50', 'gray.800')} px="8" pt="8">
+        <Box bg={mode('white.50', 'gray.800')} px="8" pt="8">
           <Box maxW="7xl" mx="auto">
             <Flex
               direction={{ base: 'column', md: 'row' }}
@@ -73,13 +74,15 @@ export const MeetingListContainer = () => {
         <Box pos="relative" zIndex={0}>
           <Divider borderBottomWidth="2px" opacity={1} borderColor={mode('gray.100', 'gray.700')} />
         </Box>
-        <Box px="8" flex="1">
+        <Box px="0" flex="1">
           <Box maxW="7xl" mx="auto">
             <TabPanels mt="5" h="full">
               <TabPanel>
                 <MeetingListTable/>
               </TabPanel>
-              <TabPanel>Analyze</TabPanel>
+              <TabPanel>
+                <WYSIGEditor />
+              </TabPanel>
             </TabPanels>
           </Box>
         </Box>
