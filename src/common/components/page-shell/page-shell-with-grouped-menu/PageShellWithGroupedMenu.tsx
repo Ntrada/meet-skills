@@ -1,3 +1,5 @@
+
+import { MeetingListContainer } from '@/modules/meetings/components/MeetingListContainer'
 import { Box, Circle, Flex, Stack, useColorModeValue as mode } from '@chakra-ui/react'
 import * as React from 'react'
 import {
@@ -64,7 +66,10 @@ export const PageShellWithGroupedMenu = () => {
             rounded="lg"
             border="3px dashed currentColor"
             color={mode('gray.200', 'gray.700')}
-          />
+          >
+            <MeetingListContainer />
+          </Box>
+
         </Box>
       </Flex>
     </Box>
