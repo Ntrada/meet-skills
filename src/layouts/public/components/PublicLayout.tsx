@@ -1,3 +1,4 @@
+import { PageShellWithGroupedMenu } from '@/common/components/page-shell/page-shell-with-grouped-menu/PageShellWithGroupedMenu';
 import CoreLayout, { Props as CoreLayoutProps } from '@/layouts/core/components/CoreLayout';
 import { createLogger } from '@/modules/core/logging/logger';
 import { css } from '@emotion/react';
@@ -17,23 +18,18 @@ type Props = Omit<CoreLayoutProps, 'layoutName'>;
  */
 const PublicLayout: React.FunctionComponent<Props> = (props): JSX.Element => {
   return (
+    <PageShellWithGroupedMenu>
     <CoreLayout
-      layoutBaseCSS={css`
-        display: block;
-        width: 100vw;
-        height: 100vh;
-        padding-top: 0px;
+          layoutBaseCSS={css`
+          `}
+          layoutName={'public-layout'}
+          hideFooter={true}
+          hideNav={true}
+          hidePreviewBanner={true}
+          {...props}
+        />
+    </PageShellWithGroupedMenu>
 
-        .page-container {
-          padding: 00px !important;
-        }
-      `}
-      layoutName={'public-layout'}
-      hideFooter={true}
-      hideNav={true}
-      hidePreviewBanner={true}
-      {...props}
-    />
   );
 };
 

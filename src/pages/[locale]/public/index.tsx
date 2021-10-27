@@ -73,9 +73,8 @@ const ExamplePublicPage: NextPage<Props> = (props): JSX.Element => {
       {...props}
       pageName={AMPLITUDE_PAGES.TEMPLATE_SSG_PAGE}
     >
-      <PageShellWithGroupedMenu />
-
-      {/*
+      <Banner />
+      {/* <PageShellWithGroupedMenu />
       <DarkWithTestimonial />
       <SignIn />
       <TestemonialWithCurve />
@@ -85,8 +84,8 @@ const ExamplePublicPage: NextPage<Props> = (props): JSX.Element => {
       <HeaderWithActionAndTab />
       <HeaderWithAction />
       <LandingPage />
-      <Banner />
-      */}
+      <Banner /> */}
+
     </PublicLayout>
   );
 };

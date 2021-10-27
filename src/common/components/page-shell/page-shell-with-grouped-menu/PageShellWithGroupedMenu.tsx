@@ -1,4 +1,5 @@
 
+import { SoftPageProps } from '@/layouts/core/types/SoftPageProps'
 import { MeetingListContainer } from '@/modules/meetings/components/MeetingListContainer'
 import { Box, Circle, Flex, Stack, useColorModeValue as mode } from '@chakra-ui/react'
 import * as React from 'react'
@@ -20,7 +21,21 @@ import { AccountSwitcher } from './AccountSwitcher'
 import { NavGroup } from './NavGroup'
 import { NavItem } from './NavItem'
 
-export const PageShellWithGroupedMenu = () => {
+export type SidebarProps = {
+  className: string;
+}
+
+type Props = {
+  children: React.ReactNode;
+  pageName: string;
+  Sidebar?: React.FunctionComponent<SidebarProps>;
+} & SoftPageProps;
+
+export const PageShellWithGroupedMenu = (props) => {
+  const {
+    children,
+    Sidebar,
+  } = props;
   return (
     <Box height="100vh" overflow="hidden" position="relative">
       <Flex h="full" id="app-container">
@@ -67,7 +82,7 @@ export const PageShellWithGroupedMenu = () => {
             border="3px dashed gray"
             color={mode('black.200', 'black.700')}
           >
-            <MeetingListContainer />
+            {children}
           </Box>
 
         </Box>

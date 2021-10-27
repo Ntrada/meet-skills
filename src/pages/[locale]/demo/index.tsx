@@ -7,6 +7,7 @@ import DemoLayout from '@/layouts/demo/components/DemoLayout';
 import ExternalFeaturesSection from '@/layouts/demo/components/ExternalFeaturesSection';
 import IntroductionSection from '@/layouts/demo/components/IntroductionSection';
 import NativeFeaturesSection from '@/layouts/demo/components/NativeFeaturesSection';
+import PageShellLayout from '@/layouts/demo/components/PageShellLayout';
 import {
   getDemoLayoutStaticPaths,
   getDemoLayoutStaticProps,
@@ -60,7 +61,7 @@ const ExampleHomePage: NextPage<Props> = (props): JSX.Element => {
       {...props}
       pageName={AMPLITUDE_PAGES.DEMO_HOME_PAGE}
       headProps={{
-        seoTitle: 'Homepage - Next Right Now',
+        seoTitle: 'Meet Skills - Right Now',
       }}
     >
       <Amplitude>
@@ -68,14 +69,14 @@ const ExampleHomePage: NextPage<Props> = (props): JSX.Element => {
           ({ logEvent }: { logEvent: LogEvent }): JSX.Element => {
             return (
               <>
-                <IntroductionSection
+                {/* <IntroductionSection
                   logEvent={logEvent}
                 />
 
                 <NativeFeaturesSection />
                 <BuiltInFeaturesSection />
                 <BuiltInUtilitiesSection />
-                <ExternalFeaturesSection />
+                <ExternalFeaturesSection /> */}
               </>
             );
           }
