@@ -41,9 +41,10 @@ import {
   Row,
   UncontrolledDropdown,
 } from 'reactstrap';
-import { BUILT_IN_FEATURES_SIDEBAR_LINKS } from './BuiltInFeaturesSidebar';
-import { BUILT_IN_UTILITIES_SIDEBAR_LINKS } from './BuiltInUtilitiesSidebar';
-import { NATIVE_FEATURES_SIDEBAR_LINKS } from './NativeFeaturesSidebar';
+import { BUILT_IN_FEATURES_SIDEBAR_LINKS } from '../BuiltInFeaturesSidebar';
+import { BUILT_IN_UTILITIES_SIDEBAR_LINKS } from '../BuiltInUtilitiesSidebar';
+import { NATIVE_FEATURES_SIDEBAR_LINKS } from '../NativeFeaturesSidebar';
+
 
 type Props = {};
 

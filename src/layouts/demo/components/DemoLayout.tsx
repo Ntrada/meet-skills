@@ -17,7 +17,8 @@ import {
 import React, { useState } from 'react';
 import DemoFooter from './DemoFooter';
 import DemoHead, { HeadProps } from './DemoHead';
-import DemoNav from './DemoNav';
+import DemoNav from './DemoNav/DemoNav';
+import { NavBarComponent } from './DemoNav/NavBarComponent';
 import DemoPageContainer from './DemoPageContainer';
 
 const fileLabel = 'layouts/demo/components/DemoLayout';
@@ -93,16 +94,16 @@ const DemoLayout: React.FunctionComponent<Props> = (props): JSX.Element => {
         {/*  style={{ display: 'none' }}*/}
         {/*></div>*/}
 
-        {
+        {/* {
           // XXX You may want to enable preview mode during non-production stages only
           process.env.NEXT_PUBLIC_APP_STAGE !== 'production' && (
             <PreviewModeBanner />
           )
-        }
+        } */}
 
         {
           (!isInIframe || isIframeWithFullPagePreview) && (
-            <DemoNav />
+            <NavBarComponent />
           )
         }
 

@@ -22,6 +22,13 @@ import {
   stopPreviewMode,
 } from '../previewMode';
 
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+} from "@chakra-ui/react"
+
 type Props = {}
 
 export const ExplanationTooltipOverlay: React.FunctionComponent = (): JSX.Element => {
@@ -72,74 +79,78 @@ const PreviewModeBanner: React.FunctionComponent<Props> = (props): JSX.Element =
     <header
       role="banner"
       css={css`
-        display: inline-flex;
-        justify-content: space-between;
-        width: 100%;
-        align-items: center;
-        color: ${secondaryColor};
-        background-color: ${secondaryColorVariant1};
-        border: transparent;
+      display: inline-flex;
+      justify-content: space-between;
+      width: 100%;
+      align-items: center;
+      color: ${secondaryColor};
+      background-color: ${secondaryColorVariant1};
+      border: transparent;
 
-        .left-actions-container,
-        .explanations-container,
-        .right-actions-container {
-          width: calc(100vw / 3); // Each section takes the same width, dynamically calculated based on the available width
+      .left-actions-container,
+      .explanations-container,
+      .right-actions-container {
+        width: calc(100vw / 3); // Each section takes the same width, dynamically calculated based on the available width
+      }
+
+      .explanations-container {
+        text-align: center;
+
+        .explanations-title {
+          display: inline;
         }
+      }
 
-        .explanations-container {
-          text-align: center;
+      .right-actions-container {
+        display: flex;
+        flex-direction: row-reverse; // Order elements from right to left
 
-          .explanations-title {
-            display: inline;
-          }
+        .change-locale-container {
+          display: inline-flex;
+          align-items: center;
         }
+      }
 
-        .right-actions-container {
-          display: flex;
-          flex-direction: row-reverse; // Order elements from right to left
-
-          .change-locale-container {
-            display: inline-flex;
-            align-items: center;
-          }
-        }
-
-        [class*="fa-"] {
-          margin-bottom: 1px
-        }
+      [class*="fa-"] {
+        margin-bottom: 1px
+      }
       `}
     >
       {
         isPreviewModeEnabled ? (
+
           <Fragment>
-            <div className={'left-actions-container'} />
-            <div className={'explanations-container'}>
-              {t(`previewModeBanner.previewModeEnabledTitle`, `Vous êtes sur l'environnement de prévisualisation`)}
-              &nbsp;
-              <Tooltip
-                overlay={<ExplanationTooltipOverlay />}
-                placement={'bottom'}
-              >
-                <FontAwesomeIcon icon={['fas', 'question-circle']} size={'xs'} />
-              </Tooltip>
-            </div>
-            <div className={'right-actions-container'}>
-              {
-                process.env.NEXT_PUBLIC_APP_STAGE === 'development' && (
-                  <Btn
-                    mode={'secondary-reverse'}
-                    color={'link'}
-                    onClick={(): void => stopPreviewMode(queryParameters)}
-                    onKeyPress={(): void => stopPreviewMode(queryParameters)}
-                  >
-                    {t(`previewModeBanner.stopPreviewMode`, `Stopper l'environnement de prévisualisation`)}
-                  </Btn>
-                )
-              }
-            </div>
+            <Alert status="warning">
+              <div className={'left-actions-container'} />
+              <div className={'explanations-container'}>
+                {t(`previewModeBanner.previewModeEnabledTitle`, `Vous êtes sur l'environnement de prévisualisation`)}
+
+                <Tooltip
+                  overlay={<ExplanationTooltipOverlay />}
+                  placement={'bottom'}
+                >
+                  <AlertIcon />
+                </Tooltip>
+              </div>
+              <div className={'right-actions-container'}>
+                {
+                  process.env.NEXT_PUBLIC_APP_STAGE === 'development' && (
+                    <Btn
+                      mode={'secondary-reverse'}
+                      color={'link'}
+                      onClick={(): void => stopPreviewMode(queryParameters)}
+                      onKeyPress={(): void => stopPreviewMode(queryParameters)}
+                    >
+                      {t(`previewModeBanner.stopPreviewMode`, `Stopper l'environnement de prévisualisation`)}
+                    </Btn>
+                  )
+                }
+              </div>
+            </Alert>
           </Fragment>
         ) : (
           <Fragment>
+            <Alert status="info">
             <div className={'left-actions-container'} />
             <div className={'explanations-container'}>
               {t(`previewModeBanner.previewModeDisabledTitle`, `L'environnement de prévisualisation est désactivé`)}
@@ -165,6 +176,7 @@ const PreviewModeBanner: React.FunctionComponent<Props> = (props): JSX.Element =
                 )
               }
             </div>
+            </Alert>
           </Fragment>
         )
       }
