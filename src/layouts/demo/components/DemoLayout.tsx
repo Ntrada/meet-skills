@@ -2,7 +2,6 @@ import { SoftPageProps } from '@/layouts/core/types/SoftPageProps';
 import { GenericObject } from '@/modules/core/data/types/GenericObject';
 import DefaultErrorLayout from '@/modules/core/errorHandling/DefaultErrorLayout';
 import { createLogger } from '@/modules/core/logging/logger';
-import PreviewModeBanner from '@/modules/core/previewMode/components/PreviewModeBanner';
 import ErrorPage from '@/pages/_error';
 import {
   Amplitude,
@@ -15,10 +14,9 @@ import {
   useRouter,
 } from 'next/router';
 import React, { useState } from 'react';
-import DemoFooter from './DemoFooter';
+import { Footer } from './Footer/Footer';
 import DemoHead, { HeadProps } from './DemoHead';
-import DemoNav from './DemoNav/DemoNav';
-import { NavBarComponent } from './DemoNav/NavBarComponent';
+import { NavBarComponent } from './Navbar/NavBarComponent';
 import DemoPageContainer from './DemoPageContainer';
 
 const fileLabel = 'layouts/demo/components/DemoLayout';
@@ -137,7 +135,7 @@ const DemoLayout: React.FunctionComponent<Props> = (props): JSX.Element => {
 
         {
           (!isInIframe || isIframeWithFullPagePreview) && (
-            <DemoFooter />
+            <Footer />
           )
         }
       </main>
