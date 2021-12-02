@@ -74,7 +74,9 @@ const MultiversalPageEntryPoint: React.FunctionComponent<Props> = (props): JSX.E
   return (
 
     <ChakraProvider theme={theme}>
-      <MultiversalAppBootstrap {...props} />
+      <div suppressHydrationWarning>
+        {typeof window === 'undefined' ? null : <MultiversalAppBootstrap {...props} />}
+      </div>
     </ChakraProvider>
 
   );

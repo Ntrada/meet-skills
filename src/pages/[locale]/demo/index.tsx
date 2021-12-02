@@ -1,13 +1,8 @@
 import { CommonServerSideParams } from '@/app/types/CommonServerSideParams';
+import { WYSIGEditor } from '@/common/components/editors/WYSIGEditor';
 import { OnlyBrowserPageProps } from '@/layouts/core/types/OnlyBrowserPageProps';
 import { SSGPageProps } from '@/layouts/core/types/SSGPageProps';
-import BuiltInFeaturesSection from '@/layouts/demo/components/BuiltInFeaturesSection';
-import BuiltInUtilitiesSection from '@/layouts/demo/components/BuiltInUtilitiesSection';
 import DemoLayout from '@/layouts/demo/components/DemoLayout';
-import ExternalFeaturesSection from '@/layouts/demo/components/ExternalFeaturesSection';
-import IntroductionSection from '@/layouts/demo/components/IntroductionSection';
-import NativeFeaturesSection from '@/layouts/demo/components/NativeFeaturesSection';
-import PageShellLayout from '@/layouts/demo/components/PageShellLayout';
 import {
   getDemoLayoutStaticPaths,
   getDemoLayoutStaticProps,
@@ -22,7 +17,6 @@ import {
   NextPage,
 } from 'next';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars,no-unused-vars
-import React from 'react';
 
 const fileLabel = 'pages/[locale]/demo/index';
 const logger = createLogger({ // eslint-disable-line no-unused-vars,@typescript-eslint/no-unused-vars
@@ -69,6 +63,7 @@ const ExampleHomePage: NextPage<Props> = (props): JSX.Element => {
           ({ logEvent }: { logEvent: LogEvent }): JSX.Element => {
             return (
               <>
+              <WYSIGEditor />
                 {/* <IntroductionSection
                   logEvent={logEvent}
                 />

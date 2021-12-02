@@ -6,8 +6,7 @@ import { NavTabLink } from './NavTabLink'
 import { UserProfile } from './UserProfile'
 
 export const NavBarComponent = () => (
-  <Box minH="24rem" bg={useColorModeValue('gray.50', 'gray.700')}>
-    <Navbar>
+  <Navbar>
       <Navbar.Brand>
         <Center marginEnd={6}>
           <Logo h="6" iconColor="blue.600" />
@@ -26,6 +25,6 @@ export const NavBarComponent = () => (
           email="andreas73.wahlgren@gmail.com"
         />
       </Navbar.UserProfile>
+
     </Navbar>
-  </Box>
 )

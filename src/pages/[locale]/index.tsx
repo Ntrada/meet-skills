@@ -7,7 +7,7 @@ import {
 import DemoHomePage, {
   getStaticPaths as getStaticPathsHomePage,
   getStaticProps as getStaticPropsHomePage,
-} from './demo/';
+} from './public/';
 
 /*
   XXX This page is an "alias", it basically imports the whole /demo/index page and export it back
